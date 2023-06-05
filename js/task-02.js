@@ -11,8 +11,13 @@ const ingredients = [
   "Condiments",
 ];
 
+const boxe = [];
 const markup = ingredients
-  .map((ingredient) => `<li class="item">${ingredient}</li>`)
+  .map((ingredient) => {
+    const tagLi = document.createElement("li");
+    tagLi.textContent = ingredient;
+    tagLi.classList.add("item");
+    boxe.push(tagLi);
+  })
   .join("");
-
-listIngredientsEl.insertAdjacentHTML("afterbegin", markup);
+listIngredientsEl.append(...boxe);
